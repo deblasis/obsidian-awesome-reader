@@ -1,10 +1,8 @@
-import 'src/styles.css'
+import 'src/styles.css';
 import {App, Menu, MenuItem, Plugin, PluginSettingTab, Setting, TFile, WorkspaceLeaf} from 'obsidian';
 import {EpubView} from "./EpubView";
 import {getPdfTocMd, openOrCreateNote} from "./utils";
 
-
-// Remember to rename these classes and interfaces!
 export interface AwesomeReaderPluginSettings {
 	scrolledView: boolean;
 	bookInitLocations: Record<string, string | number>;
@@ -13,7 +11,7 @@ export interface AwesomeReaderPluginSettings {
 const DEFAULT_SETTINGS: AwesomeReaderPluginSettings = {
 	scrolledView: false,
 	bookInitLocations: {}
-}
+};
 
 export default class AwesomeReaderPlugin extends Plugin {
 	settings: AwesomeReaderPluginSettings;
@@ -48,7 +46,7 @@ export default class AwesomeReaderPlugin extends Plugin {
 					}
 				}
 			),
-		)
+		);
 
 		// This adds a settings tab so the user can configure various aspects of the plugin
 		this.addSettingTab(new AwesomeReaderSettingTab(this.app, this));
@@ -62,7 +60,6 @@ export default class AwesomeReaderPlugin extends Plugin {
 
 	async loadSettings() {
 		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
-		console.log(this.settings)
 	}
 
 	async saveSettings() {

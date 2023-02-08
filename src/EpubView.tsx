@@ -57,7 +57,7 @@ export const EpubReader = ({contents, title, scrolled, tocOffset, initLocation, 
 			}
 		/>
 	</div>;
-}
+};
 
 export class EpubView extends FileView {
 	allowNoFile: false;
@@ -79,13 +79,13 @@ export class EpubView extends FileView {
 	}
 
 	async setInitLocation(initLocation: string | number) {
-		this.plugin.settings.bookInitLocations[this.file.path] = initLocation
-		await this.plugin.saveSettings()
+		this.plugin.settings.bookInitLocations[this.file.path] = initLocation;
+		await this.plugin.saveSettings();
 	}
 
 	async getInitLocation() {
-		const location = this.plugin.settings.bookInitLocations[this.file.path]
-		return location ? location : null
+		const location = this.plugin.settings.bookInitLocations[this.file.path];
+		return location ? location : null;
 	}
 
 
@@ -108,10 +108,10 @@ export class EpubView extends FileView {
 				// @ts-ignore
 				initLocation={await this.getInitLocation()}
 				saveLocation={(location: string | number) => {
-					this.setInitLocation(location)
+					this.setInitLocation(location);
 				}}
 				tocMemo={(toc: any) => {
-					this.fileToc = toc
+					this.fileToc = toc;
 				}}
 			/>,
 			this.contentEl
