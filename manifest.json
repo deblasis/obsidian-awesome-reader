@@ -1,10 +1,10 @@
 {
-	"id": "obsidian-awesome-reader",
+	"id": "awesome-reader",
 	"name": "Awesome Reader",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"minAppVersion": "0.15.0",
 	"description": "Make Obsidian a proper Reader.",
 	"author": "AwesomeDog",
-	"authorUrl": "https://github.com/AwesomeDog/obsidian-awesome-reader",
+	"authorUrl": "https://github.com/AwesomeDog",
 	"isDesktopOnly": false
 }
