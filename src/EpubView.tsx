@@ -98,7 +98,7 @@ export class EpubView extends FileView {
 		const height = parseFloat(style.height);
 		const tocOffset = height < width ? height : 0;
 
-		const contents = await this.app.vault.adapter.readBinary(file.path);
+		const contents = await this.app.vault.readBinary(file);
 		ReactDOM.render(
 			<EpubReader
 				contents={contents}

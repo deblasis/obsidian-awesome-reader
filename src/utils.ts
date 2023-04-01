@@ -37,7 +37,7 @@ export function getEpubTocMd(rawToc: any) {
 
 export async function getPdfTocMd(file: TFile) {
 	const pdfjsLib = await loadPdfJs();
-	const content = await this.app.vault.readBinary(file.path);
+	const content = await this.app.vault.readBinary(file);
 	const pdf = await pdfjsLib.getDocument(new Uint8Array(content)).promise;
 	const rawToc = await pdf.getOutline();
 
