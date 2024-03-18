@@ -1,0 +1,22 @@
+diff --git a/node_modules/react-reader/lib/EpubView/EpubView.js b/node_modules/react-reader/lib/EpubView/EpubView.js
+index 477f075..d2411f4 100644
+--- a/node_modules/react-reader/lib/EpubView/EpubView.js
++++ b/node_modules/react-reader/lib/EpubView/EpubView.js
+@@ -64,7 +64,7 @@ var EpubView = /*#__PURE__*/function (_Component) {
+     key: "componentDidMount",
+     value: function componentDidMount() {
+       this.initBook(true);
+-      document.addEventListener('keyup', this.handleKeyPress, false);
++      //document.addEventListener('keyup', this.handleKeyPress, false);
+     }
+   }, {
+     key: "initBook",
+@@ -96,7 +96,7 @@ var EpubView = /*#__PURE__*/function (_Component) {
+         this.book.destroy();
+       }
+       this.book = this.rendition = this.prevPage = this.nextPage = null;
+-      document.removeEventListener('keyup', this.handleKeyPress, false);
++      //document.removeEventListener('keyup', this.handleKeyPress, false);
+     }
+   }, {
+     key: "shouldComponentUpdate",

@@ -1,7 +1,7 @@
-import {App, loadPdfJs, TFile, WorkspaceLeaf} from "obsidian";
+import { App, loadPdfJs, TFile, WorkspaceLeaf } from "obsidian";
 
 export async function openOrCreateNote(app: App, file: TFile, toc: string) {
-	const noteFilename = `${file.parent.path}/${file.basename}.md`;
+	const noteFilename = `${file.parent!.path}/${file.basename}.md`;
 
 	let noteFile = app.vault.getAbstractFileByPath(noteFilename);
 	if (noteFile == null || !(noteFile instanceof TFile)) {
@@ -13,14 +13,18 @@ export async function openOrCreateNote(app: App, file: TFile, toc: string) {
 	const leaf = app.workspace.getMostRecentLeaf();
 	if (leaf instanceof WorkspaceLeaf) {
 		const fileLeaf = app.workspace.createLeafBySplit(leaf);
-		await fileLeaf.openFile(noteFile as TFile, {active: true});
+		await fileLeaf.openFile(noteFile as TFile, { active: true });
 	}
 }
 
 export function getEpubTocMd(rawToc: any) {
-	function dfs(node: { label: string; subitems: any; }, output: any[], depth: number) {
+	function dfs(
+		node: { label: string; subitems: any },
+		output: any[],
+		depth: number
+	) {
 		if (!node) return;
-		const cleanedLabel = node.label.replace(/\u0000/g, '').trim();
+		const cleanedLabel = node.label.replace(/\u0000/g, "").trim();
 		output.push("#".repeat(depth) + " " + cleanedLabel);
 		for (let sub of node.subitems) {
 			dfs(sub, output, depth + 1);
@@ -41,9 +45,13 @@ export async function getPdfTocMd(file: TFile) {
 	const pdf = await pdfjsLib.getDocument(new Uint8Array(content)).promise;
 	const rawToc = await pdf.getOutline();
 
-	function dfs(node: { title: string; items: any; }, output: any[], depth: number) {
+	function dfs(
+		node: { title: string; items: any },
+		output: any[],
+		depth: number
+	) {
 		if (!node) return;
-		const cleanedLabel = node.title.replace(/\u0000/g, '').trim();
+		const cleanedLabel = node.title.replace(/\u0000/g, "").trim();
 		output.push("#".repeat(depth) + " " + cleanedLabel);
 		for (let sub of node.items) {
 			dfs(sub, output, depth + 1);

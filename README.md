@@ -1,5 +1,8 @@
 # Awesome Reader
 
+> This fork simply patches the next/previous page switch via keyboard shortcuts. I simply removed the event handler, switching page has to be done via the mouse wheel or the buttons on the viewer itself. Now, at least, you won't see your page change just because you are editing another tab inside Obsidian and you press the arrow keys.
+> Full credit to the original author(s). I just wanted to make it usable for me.
+
 Make Obsidian a proper Reader.
 
 ## Features
@@ -8,6 +11,7 @@ Make Obsidian a proper Reader.
   devices.
 - ✒ Create book note from TOC(table of contents). With well organized heading formats.
 - ♳ Support multiple ebook formats. Currently, epub and pdf are supported.
+
 
 ## How to use
 
